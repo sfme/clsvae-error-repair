@@ -1,0 +1,24 @@
+{
+    "defs": {
+        "conv_to_int": false,
+        "max_val": 256,
+        "min_val": 0,
+        "p_img": 0.4,
+        "p_min": 0.5,
+        "p_pixel": 0.2
+    },
+    "name": "bogus_run",
+    "test_size": 0.1,
+    "train_size": 0.8,
+    "trusted_set": {
+        "frac_trusted": 0.05,
+        "mc_mode": "stratisfied_v2",
+        "min_coverage": true,
+        "samples_fixed": 10,
+        "use_labels": "joint_classes",
+        "y_class_on": true,
+        "y_noise_lists_on": true
+    },
+    "type_noise": "SaltnPepper",
+    "valid_size": 0.1
+}

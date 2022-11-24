@@ -1,0 +1,53 @@
+{
+    "defs": {
+        "combs_on": false,
+        "max_val": 256,
+        "min_val": 0,
+        "number_blocks": 4,
+        "p_img": 0.35,
+        "p_min": 0.5,
+        "pixel_val_fixed": null,
+        "rand_blocks": true,
+        "random_state": null,
+        "side_len": 6,
+        "std_shift": [
+            10,
+            10
+        ],
+        "use_other_patterns": false
+    },
+    "name": "run_1",
+    "noise_list_trusted": "regular",
+    "test_size": 0.1,
+    "train_size": 0.8,
+    "trusted_set": {
+        "dataset_size": 1965,
+        "frac_trusted": null,
+        "mc_mode": "fixed_number",
+        "min_coverage": true,
+        "n_classes": 5,
+        "percentages": [
+            1.2722646310432568,
+            2.5445292620865136,
+            6.361323155216285,
+            12.72264631043257
+        ],
+        "samples_fixed": [
+            5,
+            10,
+            25,
+            50
+        ],
+        "total_points": [
+            25,
+            50,
+            125,
+            250
+        ],
+        "use_labels": "joint_classes",
+        "y_class_on": true,
+        "y_noise_lists_on": true
+    },
+    "type_noise": "SystematicSimpleShapes",
+    "valid_size": 0.1
+}
