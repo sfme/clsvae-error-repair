@@ -43,7 +43,7 @@
     "size_output": 560,
     "sup_loss_coeff": 1000.0,
     "train_on_clean_data": false,
-    "trust_set_name": "50_samples_per_class",
+    "trust_set_name": "10_samples_per_class",
     "use_batch_norm": false,
     "use_binary_img": false,
     "use_q_z_y": false,
