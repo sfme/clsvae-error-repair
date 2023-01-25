@@ -32,12 +32,12 @@
 ### run model CLSVAE for synthetic_shapes
 
 # general options 
-declare run_epochs = 200
-declare run_model_type = "semi_y_CLSVAE"
+declare run_epochs=200
+declare run_model_type="semi_y_CLSVAE"
 
-declare run_save_folder = "../../outputs/experiments_test/dummy_experiment/clsvae/" 
-declare run_read_data_folder = "../../data/examples_synthetic_shapes/corrupt_level_35_percent/run_1/" # 1 2 3
-declare trust_set_name = "10_samples_per_class" # 5; 10; 25, 50;
+declare run_save_folder="../../outputs/experiments_test/dummy_experiment/clsvae/" 
+declare run_read_data_folder="../../data/examples_synthetic_shapes/corrupt_level_35_percent/run_1/" # 1 2 3
+declare trust_set_name="10_samples_per_class" # 5; 10; 25, 50;
 
 # train command
 python -u main.py \
