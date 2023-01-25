@@ -24,7 +24,10 @@
 
 #python -u main.py --save-on --output-folder ./dummy_basic_y_semi_4_cluster --verbose-metrics-epoch --model-type semi_y_VAE --number-epochs 400 --cuda-on --dataset-folder ../../data/GMM_Synth_four_cluster/simple_trial/ --semi-supervise
 
-python -u main.py --save-on --output-folder ./testing_genlinearflow_y_semi_4_cluster --verbose-metrics-epoch --model-type semi_y_VAE_GenLinearFlow --number-epochs 400 --cuda-on --dataset-folder ../../data/GMM_Synth_four_cluster/simple_trial/ --semi-supervise
+
+
+##
+#python -u main.py --save-on --output-folder ./testing_genlinearflow_y_semi_4_cluster --verbose-metrics-epoch --model-type semi_y_VAE_GenLinearFlow --number-epochs 400 --cuda-on --dataset-folder ../../data/GMM_Synth_four_cluster/simple_trial/ --semi-supervise
 
 ### run model CLSVAE for synthetic_shapes
 
