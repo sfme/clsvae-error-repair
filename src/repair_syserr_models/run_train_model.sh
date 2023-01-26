@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # choose setting /  model
-declare model_to_run="clsvae_synthetic_shapes" # clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes
+declare model_to_run="clsvae_fashion_mnist" # clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes
 
 
 if [ ${model_to_run} == "clsvae_synthetic_shapes" ]; then
