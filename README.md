@@ -18,6 +18,6 @@ Code for arxiv pre-print "CLSVAE: Clean Subspace VAE for Systematic Error Repair
 
 - Simple bash commands to run models can be found in <code> ./src/run_train_model.sh </code>
 
-- Note <code> --cuda-on </code> flag for GPU training
+- Note <code> --cuda-on </code> flag for GPU training, remove for CPU
 
 CONTINUE AND FINISH README.md !!
