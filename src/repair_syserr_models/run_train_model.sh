@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # choose setting /  model
-declare model_to_run="clsvae_fashion_mnist" # clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes
+declare model_to_run="ccvae_frey_faces" 
 
+# clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes
+
+# ccvae_frey_faces ; ccvae_fashion_mnist ; ccvae_synthetic_shapes
 
 if [ ${model_to_run} == "clsvae_synthetic_shapes" ]; then
 
@@ -124,6 +127,89 @@ elif [ ${model_to_run} == "clsvae_fashion_mnist" ]; then
         --reg-delay-n-epochs 5 \
         --reg-schedule-ratio 0.5 \
         --dist-corr-reg-coeff 1000.0 \
+        --trust-set-name ${trust_set_name}
+
+elif [ ${model_to_run} == "ccvae_synthetic_shapes" ]; then
+
+    ### run model CCVAE for synthetic_shapes
+
+    # general options
+    declare run_epochs=200
+    declare run_model_type="semi_y_CCVAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/ccvae/" 
+    declare run_read_data_folder="../../data/examples_synthetic_shapes/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="10_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --semi-supervise \
+        --use-binary-img \
+        --y-clean-prior 0.6 \
+        --q-y-x-coeff 50000.0 \
+        --trust-set-name ${trust_set_name}
+
+
+
+elif [ ${model_to_run} == "ccvae_frey_faces" ]; then
+
+    ### run model CCVAE for frey_faces
+
+    # general options
+    declare run_epochs=300 
+    declare run_model_type="semi_y_CCVAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/ccvae/" 
+    declare run_read_data_folder="../../data/examples_frey_faces/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="10_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --semi-supervise \
+        --y-clean-prior 0.6 \
+        --lr 1e-3 \
+        --q-y-x-coeff 10000.0 \
+        --trust-set-name ${trust_set_name}
+
+elif [ ${model_to_run} == "ccvae_fashion_mnist" ]; then
+
+    ### run model CCVAE for fashion_mnist
+
+    # general options
+    declare run_epochs=100
+    declare run_model_type="semi_y_CCVAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/ccvae/" 
+    declare run_read_data_folder="../../data/examples_fashion_mnist/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="10_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --semi-supervise \
+        --y-clean-prior 0.6 \
+        --lr 1e-3 \
+        --q-y-x-coeff 250000.0 \
         --trust-set-name ${trust_set_name}
 
 fi
