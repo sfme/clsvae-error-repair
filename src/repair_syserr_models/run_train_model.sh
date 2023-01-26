@@ -3,9 +3,9 @@
 # choose setting /  model
 declare model_to_run="ccvae_frey_faces" 
 
-# clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes
+# CLSVAE: clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes ;
 
-# ccvae_frey_faces ; ccvae_fashion_mnist ; ccvae_synthetic_shapes
+# CCVAE: ccvae_frey_faces ; ccvae_fashion_mnist ; ccvae_synthetic_shapes ;
 
 if [ ${model_to_run} == "clsvae_synthetic_shapes" ]; then
 
