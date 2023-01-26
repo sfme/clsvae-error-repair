@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # choose setting /  model
-declare model_to_run="ccvae_frey_faces" 
+declare model_to_run="vae_l2_synthetic_shapes" 
 
 # CLSVAE: clsvae_frey_faces ; clsvae_fashion_mnist ; clsvae_synthetic_shapes ;
 
 # CCVAE: ccvae_frey_faces ; ccvae_fashion_mnist ; ccvae_synthetic_shapes ;
+
+# VAE L2: vae_l2_frey_faces ; vae_l2_fashion_mnist ; vae_l2_synthetic_shapes ;
+
+# CVAE: cvae_frey_faces ; cvae_fashion_mnist ; cvae_synthetic_shapes ;
+
 
 if [ ${model_to_run} == "clsvae_synthetic_shapes" ]; then
 
@@ -211,6 +216,95 @@ elif [ ${model_to_run} == "ccvae_fashion_mnist" ]; then
         --lr 1e-3 \
         --q-y-x-coeff 250000.0 \
         --trust-set-name ${trust_set_name}
+
+elif [ ${model_to_run} == "vae_l2_synthetic_shapes" ]; then
+
+    ### run model VAE L2 for synthetic_shapes
+
+    # general options
+    declare run_epochs=200
+    declare run_model_type="VAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/vae_l2/" 
+    declare run_read_data_folder="../../data/examples_synthetic_shapes/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="50_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --use-binary-img \
+        --kl-anneal \
+        --kl-anneal-start 0.0 \
+        --kl-anneal-stop 1.0 \
+        --kl-anneal-ratio 0.5 \
+        --kl-anneal-delay-epochs 10 \
+        --l2-reg 35.0 \
+        --trust-set-name ${trust_set_name}
+
+elif [ ${model_to_run} == "vae_l2_frey_faces" ]; then
+
+    ### run model VAE L2 for frey_faces
+
+    # general options
+    declare run_epochs=300
+    declare run_model_type="VAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/vae_l2/" 
+    declare run_read_data_folder="../../data/examples_frey_faces/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="50_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --kl-anneal \
+        --kl-anneal-start 0.0 \
+        --kl-anneal-stop 1.0 \
+        --kl-anneal-ratio 0.5 \
+        --kl-anneal-delay-epochs 20 \
+        --l2-reg 100.0 \
+        --trust-set-name ${trust_set_name}
+
+elif [ ${model_to_run} == "vae_l2_fashion_mnist" ]; then
+
+    ### run model VAE L2 for fashion_mnist
+
+    # general options
+    declare run_epochs=100
+    declare run_model_type="VAE"
+
+    declare run_save_folder="../../outputs/experiments_test/dummy_experiment/vae_l2/" 
+    declare run_read_data_folder="../../data/examples_fashion_mnist/corrupt_level_35_percent/run_1/" # 1 2 3
+    declare trust_set_name="50_samples_per_class" # 5; 10; 25, 50;
+
+    # train model command
+    python -u main.py \
+        --cuda-on \
+        --save-on \
+        --output-folder ${run_save_folder} \
+        --verbose-metrics-epoch \
+        --model-type ${run_model_type} \
+        --number-epochs ${run_epochs} \
+        --dataset-folder ${run_read_data_folder} \
+        --kl-anneal \
+        --kl-anneal-start 0.0 \
+        --kl-anneal-stop 1.0 \
+        --kl-anneal-ratio 0.5 \
+        --kl-anneal-delay-epochs 20 \
+        --l2-reg 100.0 \
+        --trust-set-name ${trust_set_name}
+
 
 fi
 
