@@ -5,7 +5,7 @@ A semi-supervised VAE model for outlier detection and data repair of systematic 
 This repo is the public release code for the pre-print "CLSVAE: Clean Subspace VAE for Systematic Error Repair".\
 Link to the arXiv paper here: https://arxiv.org/abs/2207.08050 . 
 
-See paper for details on models, hyperparameters, and datasets.
+See paper for details on models, hyperparameters and datasets.
 
 **Please consider citing us if you use any part of our code.**
 
