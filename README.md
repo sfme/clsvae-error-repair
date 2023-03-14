@@ -1,9 +1,12 @@
 # CLSVAE for Systematic Error Repair
 
-A semi-supervised VAE model for outlier detection and repair of systematic errors in dirty datasets.
+A semi-supervised VAE model for outlier detection and data repair of systematic errors in dirty datasets.
 
-This repo is the public code for the arxiv pre-print "CLSVAE: Clean Subspace VAE for Systematic Error Repair".
-Check it here https://arxiv.org/abs/2207.08050 .
+This repo is the public code for the pre-print "CLSVAE: Clean Subspace VAE for Systematic Error Repair".\
+Link to the arXiv paper here: https://arxiv.org/abs/2207.08050 . 
+
+See paper for details on models, hyperparameters, and datasets.
+
 **Please consider citing us if you use any part of our code.**
 
 ## Instalation
@@ -13,25 +16,39 @@ Check it here https://arxiv.org/abs/2207.08050 .
     - e.g. install via  <code> pip install -r  requirements.txt</code> inside your "venv" or "conda" environment
 
 - Please install models package using inside your virtual environment (dev mode): <code>pip install -e ./src/</code>
-    - this contains the code for the VAE models and associated utility functions
+    - this package (name is <code>repair_syserr_models</code>) contains the code for the VAE models and associated \
+      utility functions
+     
+    - five models provided (used in paper): VAE, CVAE, VAE_GMM, CCVAE, and **CLSVAE**.
 
 ## Usage
 - Example jupyter notebooks with examples for all models are found in <code> ./src/notebooks/ </code>
+    - the current notebooks already have training run information in the cells, but can be re-run by user. 
 
-- Simple bash commands to run models can be found in <code> ./src/run_train_model.sh </code>
+- Simple bash commands to run models can be found in <code> ./src/repair_syserr_models/run_train_model.sh </code>
 
-- Note <code> --cuda-on </code> flag for GPU training, remove for CPU only training.
+- An example exists (notebook, or in script) for each dataset from paper, for each model from paper, and \
+  for 35% corruption level
+
+- Note <code> --cuda-on </code> flag for GPU training, remove for CPU only training
 
 ## Inputs
-Input data for experiments to run models, see below.
+Input data (dirty and clean datasets) for experiments to run models for notebooks and scripts in **Usage**.\
+Please see below to get data.
 
 ### Data for Examples (Jupyter Notebooks and Scripts)
 - Copy folder contents in <code>data</code> in Google Drive
   available [here](https://drive.google.com/drive/folders/1YseCgYtloWd1DVpAbet-YfR0cb8x0vh1?usp=sharing)
-  to your local repo folder in <code>./data/</code>.
+  to your local repo folder in <code>./data/</code>
+
+- Three datasets (Fashion MNIST, Frey Faces, Synthetic Shapes) with 35% corruption level for each, both \
+  ground-truth and corrupt data version therein.
 
 ## Outputs
-- the
+- The output results of the training run (e.g. metrics, performance and model parameters) are then found \
+  in folder <code>./outputs/experiments_test/</code>
+
+- The current folder already includes outputs from the existing example training runs.
 
 ## License
 
