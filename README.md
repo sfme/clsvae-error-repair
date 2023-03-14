@@ -23,7 +23,7 @@ See paper for details on models, hyperparameters, and datasets.
 
 ## Usage
 - Example jupyter notebooks with examples for all models are found in <code> ./src/notebooks/ </code>
-    - the current notebooks already have training run information in the cells, but can be re-run by user. 
+    - the current notebooks already have training run information in the cells and visualization of repairs, but can be re-run by user. 
 
 - Simple bash commands to run models can be found in <code> ./src/repair_syserr_models/run_train_model.sh </code>
 
