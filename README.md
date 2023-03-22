@@ -12,6 +12,8 @@ See paper for details on models, hyperparameters and datasets.
 ## Instalation
 - Requires Python 3.8. or higher
 
+- Pytorch framework (v1.8.1) was used
+
 - Used python packages can be found in <code> ./src/requirements.txt </code>
     - e.g. you can install via  <code> pip install -r  requirements.txt</code> inside your "venv" or "conda" environment
 
