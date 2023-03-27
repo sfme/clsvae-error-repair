@@ -3,7 +3,7 @@
 A semi-supervised VAE model for outlier detection and data repair of systematic errors in dirty datasets.
 Here we introduce the pytorch implementation of CLSVAE (Clean Subspace Variational Autoencoder).
 
-This repo is the public release code for the pre-print **"Repairing Systematic Outliers by Learning Clean Subspaces in VAEs"**.\
+This repo is the public release code for the pre-print **"Repairing Systematic Outliers by Learning Clean Subspaces in VAEs"**.
 Link to the arXiv paper here: https://arxiv.org/abs/2207.08050 . 
 
 See paper for details on models, hyperparameters and datasets.
